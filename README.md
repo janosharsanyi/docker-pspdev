@@ -7,6 +7,18 @@ Cross-compile your PSP homebrew projects inside a Docker container based on [psp
 
 ## Quick Start
 
+`build.bat`
+```
+@echo off
+docker run -it --rm -v "%~dp0:/src" ticky/pspdev %*
+```
+
+`build.sh`
+```
+#!/usr/bin/env bash
+docker run -it --rm -v "$(dirname "$(readlink -f -- "$0")"):/src" ticky/pspdev "$@"
+```
+
 Run this command in your project's root folder to build it inside a Docker container:
 
 ```bash
